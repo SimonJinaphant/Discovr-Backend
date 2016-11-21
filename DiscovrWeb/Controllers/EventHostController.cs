@@ -1,6 +1,7 @@
 ﻿using DiscovrWeb.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,7 +24,8 @@ namespace DiscovrWeb.Controllers
             try
             {
                 var result = db.Events.Where(x => x.Guid.Equals(query.Guid)).First();
-                return RedirectToAction("ModifyEvent", new { result.Id });
+                TempData["ModifyEvent"] = result;
+                return RedirectToAction("ModifyEvent");
             }
             catch
             {
@@ -31,12 +33,12 @@ namespace DiscovrWeb.Controllers
             }
         }
 
-        public ActionResult ModifyEvent(int id)
+        public ActionResult ModifyEvent()
         {
             try
             {
-                var result = db.Events.FindAsync(id);
-                return View(result);
+                var eventmodel = TempData["ModifyEvent"];
+                return View(eventmodel);
             }
             catch
             {
@@ -47,13 +49,16 @@ namespace DiscovrWeb.Controllers
         [HttpPost]
         public ActionResult Update(Event updatedEvent)
         {
-            updatedEvent.LastUpdated = DateTime.Today;
+            updatedEvent.LastUpdated = DateTime.Now;
+            db.Events.Attach(updatedEvent);
+            db.Entry(updatedEvent).State = EntityState.Modified;
+
             try
             {
                 db.SaveChanges();
                 return RedirectToAction("OnSuccess");
             }
-            catch
+            catch (Exception e)
             {
                 return RedirectToAction("OnFailure");
             }
@@ -84,6 +89,11 @@ namespace DiscovrWeb.Controllers
         }
 
         public ActionResult OnFailure()
+        {
+            return View();
+        }
+
+        public ActionResult Modify()
         {
             return View();
         }
