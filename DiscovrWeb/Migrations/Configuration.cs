@@ -20,9 +20,11 @@ namespace DiscovrWeb.Migrations
                 new Event()
                 {
                     Id = 1,
+                    Guid = Guid.NewGuid(),
                     Name = "Imagine Day Info Session",
                     StartTime = new DateTime(2016, 9, 6, 11, 0, 0),
                     EndTime = new DateTime(2016, 9, 6, 16, 0, 0),
+                    LastUpdated = new DateTime(2016, 9, 6, 11, 0, 0),
                     Host = "UBC Snowbots",
                     Location = "Outside of Kaiser on Main Mall",
                     Description = "We have a robot..."
@@ -30,9 +32,11 @@ namespace DiscovrWeb.Migrations
                 new Event()
                 {
                     Id = 2,
+                    Guid = Guid.NewGuid(),
                     Name = "Week E^0",
                     StartTime = new DateTime(2016, 9, 6, 0, 0, 0),
                     EndTime = new DateTime(2016, 9, 15, 0, 0, 0),
+                    LastUpdated = new DateTime(2016, 9, 6, 0, 0, 0),
                     Host = "EUS (Engineering Undergraduate Society)",
                     Location = "Multiple Locations",
                     Description = ""
@@ -40,9 +44,11 @@ namespace DiscovrWeb.Migrations
                 new Event()
                 {
                     Id = 3,
+                    Guid = Guid.NewGuid(),
                     Name = "Movie Night",
                     StartTime = new DateTime(2016, 10, 28, 16, 0, 0),
                     EndTime = new DateTime(2016, 10, 28, 20, 0, 0),
+                    LastUpdated = new DateTime(2016, 10, 28, 16, 0, 0),
                     Host = "ECESS (Electrical and Computer Engineering Student Society)",
                     Location = "MCLD 418",
                     Description = "What's a better way to get into the Halloween spirit than by snuggling around the Christmas tree with some egg nog?"

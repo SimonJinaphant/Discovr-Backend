@@ -12,6 +12,9 @@ namespace DiscovrWeb.Models
         public int Id { get; set; }
 
         [Required]
+        public Guid Guid { get; set; }
+
+        [Required]
         public string Name { get; set; }
 
         [Required]
@@ -28,5 +31,7 @@ namespace DiscovrWeb.Models
 
         [Required]
         public DateTime EndTime { get; set; }
+
+        public DateTime LastUpdated { get; set; }
     }
 }

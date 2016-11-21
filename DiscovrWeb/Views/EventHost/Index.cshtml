@@ -1,0 +1,43 @@
+﻿@model DiscovrWeb.Models.Event
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>Hello from our View Template!</p>
+
+@using (Html.BeginForm("Create", "EventHost"))
+{
+    <div class="form-group">
+        @Html.Label("Event name: ")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Event located at: ")
+        @Html.TextBoxFor(x => x.Location, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Event starts at: ")
+        @Html.TextBoxFor(x => x.StartTime, new { type = "datetime-local", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Event ends at: ")
+        @Html.TextBoxFor(x => x.EndTime, new { type = "datetime-local", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Organization name: ")
+        @Html.TextBoxFor(x => x.Host, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Describe your event: ")
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit event</button>
+
+}

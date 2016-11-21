@@ -193,6 +193,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\EventHostController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,6 +202,14 @@
     <Compile Include="Migrations\201611052257448_Init.cs" />
     <Compile Include="Migrations\201611052257448_Init.Designer.cs">
       <DependentUpon>201611052257448_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611210042528_UpdatedEvent.cs" />
+    <Compile Include="Migrations\201611210042528_UpdatedEvent.Designer.cs">
+      <DependentUpon>201611210042528_UpdatedEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611210059300_UpdatedEvent1.cs" />
+    <Compile Include="Migrations\201611210059300_UpdatedEvent1.Designer.cs">
+      <DependentUpon>201611210059300_UpdatedEvent1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DiscovrWebContext.cs" />
@@ -239,6 +248,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\DiscovrWeb.pubxml" />
+    <None Include="Properties\PublishProfiles\DiscovrWeb2.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -261,6 +271,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\EventHost\Index.cshtml" />
+    <Content Include="Views\EventHost\OnSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -276,6 +288,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611052257448_Init.resx">
       <DependentUpon>201611052257448_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611210042528_UpdatedEvent.resx">
+      <DependentUpon>201611210042528_UpdatedEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611210059300_UpdatedEvent1.resx">
+      <DependentUpon>201611210059300_UpdatedEvent1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
