@@ -56,6 +56,7 @@ namespace DiscovrWeb.Controllers
             try
             {
                 db.SaveChanges();
+                TempData["GUID"] = updatedEvent.Guid;
                 return RedirectToAction("OnSuccess");
             }
             catch (Exception e)
@@ -75,6 +76,7 @@ namespace DiscovrWeb.Controllers
             try
             {
                 db.SaveChanges();
+                TempData["GUID"] = newEvent.Guid;
                 return RedirectToAction("OnSuccess");
             }
             catch
@@ -85,6 +87,7 @@ namespace DiscovrWeb.Controllers
 
         public ActionResult OnSuccess()
         {
+            var eventGuid = TempData["GUID"];
             return View();
         }
 

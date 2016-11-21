@@ -7,11 +7,16 @@
 
 @using (Html.BeginForm("GetEvent", "EventHost"))
 {
+    <h2>Modify an Event</h2>
+    <p>
+        When you'd created an event we'd given you a code to remember;
+        use that code to regain access to your event data again.
+    </p>
     <div class="form-group">
-        @Html.Label("Event GUID: ")
+        @Html.Label("Event Code: ")
         @Html.TextBoxFor(x => x.Guid, new { @class = "form-control" })
     </div>
 
-    <button type="submit" class="btn btn-primary">Find event</button>
+    <button type="submit" class="btn btn-primary">Find my event</button>
 
 }
