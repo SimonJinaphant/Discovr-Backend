@@ -273,6 +273,9 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\EventHost\Index.cshtml" />
     <Content Include="Views\EventHost\OnSuccess.cshtml" />
+    <Content Include="Views\EventHost\OnFailure.cshtml" />
+    <Content Include="Views\EventHost\Modify.cshtml" />
+    <Content Include="Views\EventHost\ModifyEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

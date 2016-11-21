@@ -1,0 +1,17 @@
+﻿@model DiscovrWeb.Models.Event
+
+@{
+    ViewBag.Title = "Modify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("GetEvent", "EventHost"))
+{
+    <div class="form-group">
+        @Html.Label("Event GUID: ")
+        @Html.TextBoxFor(x => x.Guid, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Find event</button>
+
+}
