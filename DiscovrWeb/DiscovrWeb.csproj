@@ -214,6 +214,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DiscovrWebContext.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

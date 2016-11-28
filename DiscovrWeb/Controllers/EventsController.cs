@@ -73,17 +73,36 @@ namespace DiscovrWeb.Controllers
 
         // POST: api/Events
         [ResponseType(typeof(Event))]
-        public async Task<IHttpActionResult> PostEvent(Event @event)
+        public async Task<IHttpActionResult> PostEvent(EventDTO @event)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Events.Add(@event);
-            await db.SaveChangesAsync();
+            Event newEvent = new Event()
+            {
+                Id = db.Events.Max(x => x.Id) + 1,
+                Guid = Guid.NewGuid(),
+                LastUpdated = DateTime.Today,
 
-            return CreatedAtRoute("DefaultApi", new { id = @event.Id }, @event);
+                Name = @event.Name,
+                Location = @event.Location,
+                Host = @event.Host,
+                Description = @event.Description,
+                StartTime = @event.StartTime,
+                EndTime = @event.EndTime
+            };
+            try
+            {
+                db.Events.Add(newEvent);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Data);
+            }
+            return CreatedAtRoute("DefaultApi", new { id = newEvent.Id }, newEvent);
         }
 
         // DELETE: api/Events/5
