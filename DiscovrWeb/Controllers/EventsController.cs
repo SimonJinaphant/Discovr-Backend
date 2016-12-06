@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -98,9 +100,17 @@ namespace DiscovrWeb.Controllers
                 db.Events.Add(newEvent);
                 db.SaveChanges();
             }
-            catch (Exception e)
+            catch (DbEntityValidationException e)
             {
-                Console.Write(e.Data);
+                foreach (var validationErrors in e.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
             }
             return CreatedAtRoute("DefaultApi", new { id = newEvent.Id }, newEvent);
         }
